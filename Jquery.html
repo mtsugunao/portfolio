@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery Demo</title>
+    <style>
+        .btn {
+            width: 100px;
+            height: 50px;
+            margin: 15px;
+        }
+        #h1 {
+            color: #364e96;
+            padding: 0.5em 0;
+            border-top: solid 3px #364e96;
+            border-bottom: solid 3px #364e96;
+        }
+        .zoom{
+            font-size: large;
+            width: 125px;
+            height: 50px;
+        }
+
+        #skytree {
+            display: none;
+            width: 500px;
+            height: 500px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html">Go to Home</a><br>
+    <h1 id="h1" style="text-align: center">Simple JQuery Demo</h1>
+    <button type="button" id="b1" class="btn">Red</button>
+    <button type="button" id="b2" class="btn">Silde Toggle</button>
+    <button type="button" id="b3" class="btn">Fadeout</button>
+    <button type="button" id="b4" class="btn">Fadein</button>
+    <button type="button" id="b5" class="btn">Show</button>
+    <button type="button" id="b6" class="btn">Hide</button><br>
+
+    <img src="images/tokyo-skytree-tembo-galleria.jpg" alt="Tokyo Skytree" id="skytree">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('#b1').on('click', function () {
+                $('#h1').css('color', 'red');
+            })
+
+            $('#b2').on('click', function () {
+                $('#h1').slideToggle(300);
+            })
+
+            $('.btn').on('mouseenter', function() {
+                $(this).addClass('zoom');
+            }).on('mouseleave', function() {
+                $(this).removeClass('zoom');
+            })
+
+            $('#b3').on('click', function() {
+                $('#h1').fadeOut(500);
+            })
+
+            $('#b4').on('click', function() {
+                $('#h1').fadeIn(1000);
+            })
+
+            $('#b5').on('click', function() {
+                $('#skytree').show();
+            })
+
+            $('#b6').on('click', function() {
+                $('#skytree').hide();
+            })
+        });
+    </script>
+</body>
+
+</html>

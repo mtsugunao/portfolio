@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>HTML Forms</title>
+</head>
+
+<body>
+	<div>
+		<a href="index.html">Go to Home</a><br>
+		<h1>HTML Forms</h1>
+		<p>Input your information following underneath forms.</p>
+		<p>Information will be stored in the database.</p>
+	</div>
+	<fieldset>
+		<form action="form.php" method="post">
+			<div>
+				<label>Firstname:</label><br>
+				<input type="text" name="fname" required>
+			</div>
+			<div>
+				<label>Last Name:</label><br>
+				<input type="text" name="lname" required>
+			</div>
+			<div>
+				<label>Email:</label><br>
+				<input type="email" name="email" required><br>
+			</div>
+			<div>
+				<label>Telephone:</label><br>
+				<input type="tel" name="phone" required pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" maxlength="10"><br><br>
+			</div>
+			<div>
+				<input type="submit" name="submit" value="Submit">
+			</div>
+		</form>
+	</fieldset><br>
+    <a href="output.php">Output ALL recordes in the database</a>
+</body>
+
+</html>

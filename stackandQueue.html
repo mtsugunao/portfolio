@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data structure</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        .datastructure {
+            margin: 40px 0;
+        }
+
+        .button {
+            width: 350px;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            background-color: #2e7c9f;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            transition: opacity .25s;
+        }
+        
+        .button:hover {
+            cursor: pointer;
+            opacity: 0.75;
+        }
+
+        .list-box {
+            padding: 20px;
+            background-color: #cef2ff;
+            line-height: 1.5;
+        }
+
+        p {
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html">Go to Home</a>
+    <h1>Stack and Queue</h1>
+    <h2>Queue</h2>
+    <p>First In First Out</p>
+    <div class="datastructure">
+        <button id="button-add" class="button">Add an element to Queue</button>
+        <button id="button-clear" class="button">Remove an element from Queue</button>
+
+        <div class="list-box">
+            <h2>All elements in Queue</h2>
+            <ul id="queue"></ul>
+        </div>
+    </div>
+
+    <h2>Stack</h2>
+    <p>Last In First Out</p>
+    <div class="datastructure">
+        <button id="button-push" class="button">Push an element to Stack</button>
+        <button id="button-pop" class="button">Pop an element from Stack</button>
+
+        <div class="list-box">
+            <h2>All elements in Stack</h2>
+            <ul id="stack"></ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const buttonAdd = document.getElementById('button-add');
+    const buttonClear = document.getElementById('button-clear');
+    const list = document.getElementById('queue');
+    let n = 1;
+
+    buttonAdd.addEventListener('click', function () {
+        const element = document.createElement('li');
+        element.innerHTML = n;
+        n++;
+        list.appendChild(element);
+    });
+
+    buttonClear.addEventListener('click', function () {
+        // list.removeChild(list.lastChild);
+        list.removeChild(list.firstChild);
+    });
+</script>
+<script>
+    const buttonPush = document.getElementById('button-push');
+    const buttonPop = document.getElementById('button-pop');
+    const li = document.getElementById('stack');
+    let count = 1;
+
+    buttonPush.addEventListener('click', function () {
+        const element = document.createElement('li');
+        element.innerHTML = count;
+        count++;
+        li.prepend(element);
+    });
+
+    buttonPop.addEventListener('click', function () {
+        // list.removeChild(list.lastChild);
+        li.removeChild(li.firstChild);
+    });
+</script>
+
+</html>

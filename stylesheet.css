@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 100px;
+}
+
+div {
+    display: flex;
+    flex: 1;
+}
+
+main {
+    flex: 1;
+}
+
+nav {
+    width: 175px;
+}
+
+aside {
+    width: 200px;
+}
+
+footer {
+    height: 100px;
+    background-color: powderblue;
+}
+
+#h1 {
+    text-align: center;
+    background-color: powderblue;
+    height: 100px;
+    margin-top: 0%;
+}
+
+#lake {
+    height: 250px;
+}
+#main {
+    background-color: blanchedalmond;
+}
+
+#left {
+    background-color: ivory;
+}
+
+#right {
+    background-color: ivory;
+}
+
+.header {
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    body, nav, aside{
+        width: 100%;
+    }
+
+    div {
+        flex-direction: column; 
+    }
+    
+    main {
+        order: -1;
+    }
+}

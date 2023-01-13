@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Forms Validation</title>
+</head>
+
+<body>
+	<div>
+		<a href="index.html">Go to Home</a><br><br>
+
+	<fieldset>
+		<h2>Form Validation</h2>
+
+		<p>Please input a number between 1 and 10:</p>
+
+		<input id="numb">
+
+		<button type="button" onclick="myFunction()">Submit</button>
+
+		<p id="demo"></p>
+
+		<h2 class="form">
+			Alert Box
+		</h2>
+		<p>Do not enter anything and see What happens</p>
+		<form name="myForm" onsubmit="return validateFormAlert()" method="post">
+			<input type="text" name="fname">
+			<input type="submit" value="Submit">
+		</form>
+		<br>
+
+		<h2 class="form">
+			Built-In Call-out
+		</h2>
+		<form name="myForm3" method="post">
+			<label for="yearsOnOC">Do not enter anything and see What happens</label><br><br>
+			<input type="text" name="clickOn" required>
+			<input type="submit" value="Submit"><br>
+		</form>
+
+		<script>
+			function myFunction() {
+				// Get the value of the input field with id="numb"
+				let x = document.getElementById("numb").value;
+				// If x is Not a Number or less than one or greater than 10
+				let text;
+				if (isNaN(x) || x < 1 || x > 10) {
+					text = "Input not valid";
+				} else {
+					text = "Input OK";
+				}
+				document.getElementById("demo").innerHTML = text;
+			}
+
+			function validateFormAlert() {
+                    let x = document.forms["myForm"]["fname"].value;
+                    if (x == "") {
+                        alert("Plase, input something!");
+                        return false;
+                    }
+            }
+		</script>
+	</fieldset>
+</body>
+
+</html>

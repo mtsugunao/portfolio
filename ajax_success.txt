@@ -1,0 +1,1 @@
+You succeeded in Asynchronous JavaScript And XML! Tsugu's Ajax_Post_Get.html

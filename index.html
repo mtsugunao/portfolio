@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu</title>
+        <link rel="stylesheet" href="menu.css">
+    </head>
+    <body>
+        <div id="toggle">
+            <div id="toggle-box">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="nav-content">
+            <nav>
+                <ul>
+                    <li><a href="validationForm.html" target="_blank">Form Validation</a></li>
+                    <li><a href="formAndReport.html" target="_blank">Form and Report</a></li>
+                    <li><a href="Ajax_Post_Get.html" target="_blank">Ajax get and post</a></li>
+                    <li><a href="Resume.pdf" target="_blank">My resume</a></li>
+                    <li><a href="https://www.linkedin.com/in/tsugunao-masuko-615a66250/" target="_blank">LinkedIn Account</a></li>
+                    <li><a href="https://myfrees295818598.wordpress.com" target="_blank">Simple WordPress Blog</a></li>
+                    <li><a href="Jquery.html" target="_blank">My JQuery Demo</a></li>
+                    <li><a href="stackandQueue.html" target="_blank">Stack and Queue</a></li>
+                    <li><a href="otherproject/login.php">Student Sign in</a></li>
+                    <li><a href="otherproject/createAccount.php">Student Sign up</a></li>
+                    <li><a href='otherproject/administrator.php'>Administrator Sign in</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="main">
+            <h1>Tsugunao Masuko's resume page</h1>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+                $('#toggle').on('click', function () {
+                    $('body').toggleClass('is-open');
+                    $('#main').toggleClass('overlay');
+                });
+                $(document).on('click', '.overlay', function () {
+                    $('body').removeClass('is-open');
+                    $('#main').removeClass('overlay');
+                });
+            });
+        </script>
+    </body>
+</html>

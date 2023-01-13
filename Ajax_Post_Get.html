@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX Demo</title>
+        <link href="websiteStyle.css" rel="stylesheet">
+        <script>
+            function loadDoc() {
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 1 ) {
+                        document.getElementById("ready1").innerHTML =
+                            "Readystate = 1 and server connection established";
+                    }
+                    if (this.readyState == 2 ) {
+                        document.getElementById("ready2").innerHTML =
+                            "Readystate = 2 and Request has been received.";
+                    }
+                    if (this.readyState == 3 ) {
+                        document.getElementById("ready3").innerHTML =
+                            "Readystate = 3 and Request is being processed.";
+                    }
+                    if (this.readyState == 4 ) {
+                        document.getElementById("ready4").innerHTML =
+                            "Readystate = 4 and Request finished and Response is ready. ";
+                    }
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML =
+                            this.responseText;
+                    }
+                };
+                xhttp.open("GET", "ajax_success.txt", true);
+                xhttp.send();
+            }
+        </script>
+        <script>
+            function postToDB() {
+                let email = document.getElementById("postEmail").value;
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState === 4 && xhttp.status === 200) {
+                        document.getElementById("post").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST","AJAXdbEntry.php",true);
+                xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhttp.send("&email=" + email);
+            }
+        </script>
+        <script>
+            function getFromDB() {
+                let xhttp = new XMLHttpRequest();
+                let email = document.getElementById("getEmail").value;
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState === 4 && xhttp.status === 200) {
+                        document.getElementById("getResponse").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET","AJAXdbGET.php?email="+email,true);
+                xhttp.send();
+            }
+        </script>
+    </head>
+
+    <body>
+    <h2>AJAX responses from the server</h2>
+    <div id="ready1"></div>
+    <div id="ready2"></div>
+    <div id="ready3"></div>
+    <div id="ready4"></div>
+    <div id="demo">
+    <button type="button" onclick="loadDoc()">Responses from Server</button>
+    </div>
+    <hr>
+    <p>Method: POST an email to a database</p>
+    <div id="post"></div>
+    <form action="" method="POST">
+        <label for="postEmail">Send your email to the database:</label>
+        <input type="email" id="postEmail" name="email" value="Enter your email!" required>
+        <input type="button" onclick="postToDB()" value="Send email to database!">
+    </form>
+    <hr>
+    <p>Method: GET the same data from the database</p>
+    <p id="getResponse"></p>
+    <form method="GET" action="">
+        <label for="getEmail">Retrieve email from database</label>
+        <input type="text" id="getEmail">
+        <input type="button" value="Get email from database" onclick="getFromDB()">
+    </form>
+    <br>
+    </body>
+<footer>
+    <a href="index.html">Go to Home</a>
+</footer>
+</html>
